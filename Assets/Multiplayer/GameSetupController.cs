@@ -16,6 +16,6 @@ public class NewBehaviourScript : MonoBehaviour
     private void CreatePlayer()
   {
     Debug.Log("Creating Player");
-    PhotonNetwork.Instantiate(Path.Combine("CharacterPrefab", "Character"), Vector3.zero, Quaternion.identity);
+    PhotonNetwork.Instantiate(Path.Combine("Multiplayer/Prefab", "Character"), Vector3.zero, Quaternion.identity);
   }
 }
