@@ -22,6 +22,8 @@ public class GameSetupController : MonoBehaviour
       Debug.Log("I am the current Player 1");
     PhotonNetwork.Instantiate(Path.Combine("Prefab", "MagicDiamond"), Vector3.zero, Quaternion.identity);
     }
-    else { Debug.Log("I am Player 2"); }
+    else { Debug.Log("I am Player 2");
+      PhotonNetwork.Instantiate(Path.Combine("Prefab", "SuperCircle"), Vector3.zero, Quaternion.identity);
+    }
     }
 }

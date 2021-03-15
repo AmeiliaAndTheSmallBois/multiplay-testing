@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5650143163836999687}
   - component: {fileID: 7516349225229219816}
   - component: {fileID: 992580689328504911}
-  - component: {fileID: 6157729411507168695}
-  m_Layer: 0
+  - component: {fileID: -9010074136593759523}
+  m_Layer: 7
   m_Name: SuperCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
---- !u!114 &6157729411507168695
+--- !u!114 &-9010074136593759523
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
