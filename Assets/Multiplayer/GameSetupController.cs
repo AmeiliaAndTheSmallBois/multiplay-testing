@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class GameSetupController : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -16,6 +16,6 @@ public class NewBehaviourScript : MonoBehaviour
     private void CreatePlayer()
   {
     Debug.Log("Creating Player");
-    PhotonNetwork.Instantiate(Path.Combine("Multiplayer/Prefab", "Character"), Vector3.zero, Quaternion.identity);
+    PhotonNetwork.Instantiate(Path.Combine("Prefab", "MagicDiamond"), Vector3.zero, Quaternion.identity);
   }
 }
