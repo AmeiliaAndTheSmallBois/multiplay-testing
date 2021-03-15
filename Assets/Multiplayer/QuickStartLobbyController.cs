@@ -11,6 +11,7 @@ public class QuickStartLobbyController : MonoBehaviourPunCallbacks
   [SerializeField] private GameObject quickStartButton;
   [SerializeField] private GameObject quickCancelButton;
   [SerializeField] private int RoomSize = 2;
+  [SerializeField] private Text joinRoomText;
   [SerializeField] Text statusUpdate;
   [SerializeField] Text numPlayers;
   
@@ -82,6 +83,12 @@ public class QuickStartLobbyController : MonoBehaviourPunCallbacks
   {
     Debug.Log("Failed to recreate room: " + message + "  " + returnCode);
     CreateRoom();
+  }
+
+  public void JoinRoom()
+  {
+    PhotonNetwork.JoinRoom(joinRoomText.ToString());
+
   }
   public void QuickCancel()
   {

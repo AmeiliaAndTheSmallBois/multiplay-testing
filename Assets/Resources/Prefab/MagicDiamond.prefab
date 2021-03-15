@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7648137354820597222}
   - component: {fileID: 7648137354820597217}
   - component: {fileID: 1123632214056943328}
+  - component: {fileID: 1049981681}
   m_Layer: 0
   m_Name: MagicDiamond
   m_TagString: Untagged
@@ -102,6 +103,19 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents: []
-  sceneViewId: 0
+  sceneViewId: 1
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &1049981681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7648137354820597216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7f887faf3c182747aa6de902db1ea63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveFactor: 0.01
