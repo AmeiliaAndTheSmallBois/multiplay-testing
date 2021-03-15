@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
 
@@ -10,27 +11,47 @@ public class QuickStartLobbyController : MonoBehaviourPunCallbacks
   [SerializeField] private GameObject quickStartButton;
   [SerializeField] private GameObject quickCancelButton;
   [SerializeField] private int RoomSize = 2;
+  [SerializeField] Text statusUpdate;
+  [SerializeField] Text numPlayers;
+  
   void Start()
     {
-        
+  
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+    string nameOfCurrentRoom = "";
+    if (PhotonNetwork.CurrentRoom == null)
+    {
+      nameOfCurrentRoom = "NULL";
+    }
+    else
+    {
+      nameOfCurrentRoom = PhotonNetwork.CurrentRoom.Name;
+    }    
+    numPlayers.text = $"InRoom: {PhotonNetwork.InRoom} InLobby: {PhotonNetwork.InLobby}  Name Of Room: {nameOfCurrentRoom}";   
     }
   public override void OnConnectedToMaster()
   {
+    Debug.Log("On Connected to Master");
     PhotonNetwork.AutomaticallySyncScene = true;
     quickStartButton.SetActive(true);
   }
   public void QuickStart()
-  {
+  {    
     quickStartButton.SetActive(false);
     quickCancelButton.SetActive(true);
-    PhotonNetwork.JoinRandomRoom();
-    Debug.Log("Quick Start");
+    bool joinedRoom = PhotonNetwork.JoinRandomRoom();
+    int roomCount = PhotonNetwork.CountOfRooms;
+    
+   
+    //if (roomName == null) { Debug.Log("roomName is null"); }
+    //else { }
+   
+    Debug.Log("Quick Start: " + joinedRoom);
+    
   }
   public override void OnJoinRandomFailed(short returnCode, string message)
   {
@@ -45,11 +66,17 @@ public class QuickStartLobbyController : MonoBehaviourPunCallbacks
     {
       IsVisible = true,
       IsOpen = true,
-      MaxPlayers = (byte)RoomSize
+      MaxPlayers = (byte)RoomSize,      
     };
     string roomId = "SmolBoi" + randNum;
-    PhotonNetwork.CreateRoom(roomId, roomOps);
-    Debug.Log("Created Room: " + roomId);
+    bool roomCreated = PhotonNetwork.CreateRoom(roomId, roomOps);
+    var photonNet = PhotonNetwork.CurrentRoom;
+    Debug.Log("Current Room: " + photonNet);
+    string roomCreation = $"{roomId} {roomCreated}";
+    Debug.Log(roomCreation);
+    statusUpdate.text = roomCreation;
+
+
   }
   public override void OnCreateRoomFailed(short returnCode, string message)
   {
