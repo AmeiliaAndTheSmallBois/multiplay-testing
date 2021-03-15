@@ -14,8 +14,14 @@ public class GameSetupController : MonoBehaviour
 
     // Update is called once per frame
     private void CreatePlayer()
-  {
+    {
+    
     Debug.Log("Creating Player");
+    if (PhotonNetwork.IsMasterClient)
+    {
+      Debug.Log("I am the current Player 1");
     PhotonNetwork.Instantiate(Path.Combine("Prefab", "MagicDiamond"), Vector3.zero, Quaternion.identity);
-  }
+    }
+    else { Debug.Log("I am Player 2"); }
+    }
 }
